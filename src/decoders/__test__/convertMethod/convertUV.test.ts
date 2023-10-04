@@ -1,3 +1,4 @@
+import { expect, describe, test } from 'bun:test'
 import { CompressedDecoder } from '../../CompressedDecoder'
 import configs from '../fixtures/compressed-decoders'
 
