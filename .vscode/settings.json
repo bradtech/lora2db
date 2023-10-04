@@ -1,0 +1,8 @@
+{
+   "editor.formatOnSave": true,
+   "editor.defaultFormatter": "esbenp.prettier-vscode",
+   "editor.renderWhitespace": "all",
+   "[javascript]": {
+     "editor.defaultFormatter": "esbenp.prettier-vscode"
+   }
+}
