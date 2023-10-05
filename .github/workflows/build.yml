@@ -18,6 +18,12 @@ jobs:
               bun install 
               bun test
               bun run build
+         - name: Archive production artifacts
+           uses: actions/upload-artifact@v3
+           with:
+              name: lib
+              path: |
+                 lib
 
    publish:
       needs: build
@@ -26,6 +32,10 @@ jobs:
          contents: read
          packages: write
       steps:
+         - name: Download math result for job 2
+           uses: actions/download-artifact@v3
+           with:
+              name: lib
          - uses: actions/checkout@v3
          - uses: actions/setup-node@v3
            with:
