@@ -32,7 +32,7 @@ jobs:
          contents: read
          packages: write
       steps:
-         - name: Download math result for job 2
+         - name: Download build
            uses: actions/download-artifact@v3
            with:
               name: lib

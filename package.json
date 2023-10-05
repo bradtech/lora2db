@@ -1,6 +1,6 @@
 {
    "name": "@bradtech/lora2influx",
-   "version": "1.7.0",
+   "version": "1.7.1",
    "author": "Brad Technology SAS <developers@brad.ag>",
    "license": "MIT",
    "main": "lib/index.js",
