@@ -9,7 +9,9 @@ on:
 jobs:
    build:
       runs-on: ubuntu-latest
-
+      permissions:
+         contents: read
+         packages: write
       steps:
          - uses: actions/checkout@v3
          - uses: oven-sh/setup-bun@v1
@@ -18,29 +20,12 @@ jobs:
               bun install 
               bun test
               bun run build
-         - name: Archive production artifacts
-           uses: actions/upload-artifact@v3
-           with:
-              name: lib
-              path: |
-                 lib
 
-   publish:
-      needs: build
-      runs-on: ubuntu-latest
-      permissions:
-         contents: read
-         packages: write
-      steps:
-         - name: Download build
-           uses: actions/download-artifact@v3
-           with:
-              name: lib
-         - uses: actions/checkout@v3
          - uses: actions/setup-node@v3
            with:
               node-version: 16
               registry-url: 'https://registry.npmjs.org'
-         - run: npm publish --access public
+         - name: Publish on NPM
+           run: npm publish --access public
            env:
               NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
