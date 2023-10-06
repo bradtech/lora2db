@@ -1,6 +1,6 @@
 {
    "name": "@bradtech/lora2influx",
-   "version": "1.7.2",
+   "version": "1.7.3",
    "author": "Brad Technology SAS <developers@brad.ag>",
    "license": "MIT",
    "main": "lib/index.js",
@@ -30,6 +30,7 @@
    },
    "files": [
       "lib",
+      "node_modules",
       "README.md"
    ],
    "os": [
