@@ -4,8 +4,4 @@ A modular utility package to subscribe to LoraWan providers message queues, proc
 
 ## Get started
 
-```sh
-npm i lora2db
-# or
-bun add github:@bradtech/lora2db
-```
+This package is not intented to be used as-is. Look into the `examples/` folder to see some configurations and build your own based on your Lorawan provider and database of choice.
