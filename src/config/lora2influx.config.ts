@@ -1,6 +1,5 @@
 import { CayenneDecoder } from '../decoders/CayenneDecoder'
 import { CompressedDecoder } from '../decoders/CompressedDecoder'
-import { InfluxDBForwarder } from '../forwarders/InfluxDBForwarder'
 import { measurements } from './measurement'
 
 const {
@@ -47,5 +46,5 @@ export default {
    middlewares: [
       /* new MyMiddleware(process.env) */
    ],
-   forwarders: [new InfluxDBForwarder(process.env)],
+   // forwarders: [new InfluxDBForwarder(process.env)],
 }
