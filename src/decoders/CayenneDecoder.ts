@@ -13,8 +13,6 @@ export class CayenneDecoder extends AbstractDecoder {
 
       const meta = decoder.getChannel(0)
 
-      // console.log('data', decoder.getChannels())
-
       // get payload format version
       switch (meta.digital) {
          case 3:

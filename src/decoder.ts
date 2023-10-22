@@ -1,41 +1,9 @@
-// import {
-//    ANALOG_INPUT,
-//    DIGITAL_INPUT,
-//    TEMPERATURE,
-//    LUMINOSITY,
-//    HUMIDITY,
-//    BAROMETER,
-// } from './common'
-
 const DIGITAL_INPUT = 0x00
 const ANALOG_INPUT = 0x02
 const LUMINOSITY = 0x65
 const TEMPERATURE = 0x67
 const HUMIDITY = 0x68
 const BAROMETER = 0x73
-
-/**
-00 00 = channel 0 - Digital input
-    03 ==> payload format
-00 02 = channel 0 - Analog input
-    01 72 ==> voltage value * 100
-01 65 = channel 1 - Luminosity
-    ff ff ==> luminosity value (unsigned)
-01 00 = channel 1 - Digital input
-    92 ==> UV index
-02 68 = channel 2 - Humidity
-    20 ==> Humidity Foot #1
-02 67  = channel 2 - Temperature
-    00 69 = Temp Foot #1
-04 00 = channel 4 - Digital input
-    57 ==> ??
-04 73 = channel 4 - Barometer
-    19 f0 = Air Pressure
-04 67 = channel 4 - Temperature
-    00 d9 ==> Temp Foot #2
-04 68 = channel 4 - Humidity
-    b2 => Humidity Foot #2
- */
 
 export class LPPDecoder {
    maxsize: number = 51
@@ -61,7 +29,7 @@ export class LPPDecoder {
    /**
     * Try to decode a Cayenne LPP payload in buffer
     */
-   decode(buffer: any) {
+   decode(buffer: Buffer) {
       if (buffer) {
          this.buffer = buffer
       }
