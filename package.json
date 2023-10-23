@@ -1,50 +1,18 @@
 {
-  "name": "@bradtech/lora2db",
-  "version": "0.9.0",
-  "author": "Brad Technology SAS <developers@brad.ag>",
-  "license": "MIT",
-  "main": "lib/index.js",
+  "name": "lora2db",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "test": "jest --runInBand --silent --ci --verbose",
-    "jsbuild": "babel src --presets @babel/preset-env --out-dir lib --copy-files",
-    "build": "tsc",
-    "buildwatch": "tsc --watch"
+    "build": "tsc --build"
   },
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "mqtt": "^4.3.7",
-    "time-stamp": "^2.2.0"
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.17.10",
-    "@babel/preset-env": "^7.17.10",
-    "@babel/preset-typescript": "^7.16.7",
-    "@types/jest": "^27.0.3",
     "@types/node": "^20.8.7",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.2.3",
-    "babel-jest": "^27.1.2",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "bun-types": "^1.0.7",
-    "cross-env": "^5.1.4",
-    "eslint": "^4.19.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "jest": "^27.4.7",
-    "jest-node-exports-resolver": "^1.1.4",
-    "ts-jest": "^27.1.2",
-    "ts-node": "^10.4.0",
-    "typescript": "4.7.4"
-  },
-  "packageManager": "yarn@3.2.2",
-  "os": [
-    "darwin",
-    "linux"
-  ]
+    "ts-node": "^10.9.1",
+    "@bradtech/lora2db": "workspace:*"
+  }
 }
