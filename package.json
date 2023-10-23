@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "tsc --build"
+    "build": "tsc --build --verbose"
   },
   "dependencies": {
     "typescript": "^5.2.2"

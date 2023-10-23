@@ -19,6 +19,9 @@
     },
     {
       "path": "./packages/lora2db-fwdr-influx"
+    },
+    {
+      "path": "./packages/lora2db-fwdr-timestream"
     }
   ]
 }
