@@ -1,10 +1,10 @@
-import { AbstractAdapter } from '.'
+import { AbstractProvider } from '@bradtech/lora2db'
 
 /**
  * @see https://liveobjects.orange-business.com/doc/html/lo_manual.html#_lora_output
  *
  */
-export class OrangeAdapter extends AbstractAdapter {
+export class OrangeProvider extends AbstractProvider {
    getDeviceId = () => this._jsonMessage.streamId.split(':').pop()
 
    getBuffer = (): Buffer => Buffer.from(this._jsonMessage.value.payload, 'hex')

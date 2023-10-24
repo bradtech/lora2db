@@ -1,9 +1,8 @@
-import { classMap } from '.'
-
-export class AbstractAdapter {
+export class AbstractProvider {
    _payload = {}
    _data = {}
    _jsonMessage: any = null
+   static classMap = {}
 
    constructor(payload = undefined) {
       if (payload !== undefined) {
@@ -16,9 +15,16 @@ export class AbstractAdapter {
       this._jsonMessage = JSON.parse(payload)
    }
 
+   static registerAdapter(adapter: any, provider: string) {
+      Reflect.set(AbstractProvider.classMap, provider, adapter)
+   }
+
    static factory(loraProvider: string) {
       try {
-         const adapterClass = Reflect.get(classMap, loraProvider)
+         const adapterClass = Reflect.get(
+            AbstractProvider.classMap,
+            loraProvider,
+         )
          return new adapterClass()
       } catch (e) {
          console.log(e)

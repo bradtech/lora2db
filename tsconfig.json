@@ -18,6 +18,12 @@
       "path": "./packages/lora2db"
     },
     {
+      "path": "./packages/lora2db-provider-ttn"
+    },
+    {
+      "path": "./packages/lora2db-provider-orange"
+    },
+    {
       "path": "./packages/lora2db-fwdr-influx"
     },
     {

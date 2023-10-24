@@ -1,9 +1,9 @@
-import { AbstractAdapter } from './AbstractAdapter'
+import { AbstractProvider } from '@bradtech/lora2db'
 
 /**
  * @see https://www.thethingsindustries.com/docs/reference/data-formats/#uplink-messages
  */
-export class TTNAdapter extends AbstractAdapter {
+export class TTNProvider extends AbstractProvider {
    getDeviceId = () => this._jsonMessage.end_device_ids.device_id
 
    getBuffer = (): Buffer =>
@@ -90,11 +90,8 @@ export class TTNAdapter extends AbstractAdapter {
          this._jsonMessage.uplink_message.rx_metadata
       ) {
          const { f_cnt = 0, f_port } = this._jsonMessage.uplink_message
-         const {
-            rssi,
-            snr,
-            timestamp,
-         } = this._jsonMessage.uplink_message.rx_metadata[0]
+         const { rssi, snr, timestamp } =
+            this._jsonMessage.uplink_message.rx_metadata[0]
 
          const {
             frequency,

@@ -1,4 +1,4 @@
-import { AbstractAdapter } from '../adapters'
+import { AbstractProvider } from '../providers/AbstractProvider'
 import { AbstractDecoder } from '../decoders/AbstractDecoder'
 import { AbstractForwarder } from '../forwarders/AbstractForwarder'
 import { AbstractMiddleware } from '../middlewares/AbstractMiddleware'
@@ -9,8 +9,8 @@ const timestamp = require('time-stamp')
 export class AbstractClient<
    F extends AbstractForwarder,
    M extends AbstractMiddleware,
-   A extends AbstractAdapter,
-   D extends AbstractDecoder
+   A extends AbstractProvider,
+   D extends AbstractDecoder,
 > {
    url = ''
    username = 'application'
@@ -31,7 +31,7 @@ export class AbstractClient<
       this.password = config.password
       this.topic = config.topic
       this._provider = config.provider
-      this._adapter = AbstractAdapter.factory(this._provider)
+      this._adapter = AbstractProvider.factory(this._provider)
       this._message = new ProcessingMessage()
       if (config.decoders) {
          this.addDecoders(config.decoders)
@@ -52,7 +52,7 @@ export class AbstractClient<
    }
 
    addDecoders = (decoders: D[]) => {
-      decoders.forEach(decoder => this.addDecoder(decoder, decoder.port))
+      decoders.forEach((decoder) => this.addDecoder(decoder, decoder.port))
    }
 
    addMiddleware = (middleware: M) => this._middlewares.push(middleware)
@@ -66,7 +66,7 @@ export class AbstractClient<
 
       // find decoder matching message port
       const decoder = this._decoders.find(
-         decoder => decoder.port === this._adapter?.getPort(),
+         (decoder) => decoder.port === this._adapter?.getPort(),
       )
 
       if (decoder === undefined) {
@@ -82,7 +82,7 @@ export class AbstractClient<
 
    async triggerMiddlewares() {
       await Promise.all(
-         this._middlewares.map(async middleware => {
+         this._middlewares.map(async (middleware) => {
             console.log(`Executing middleware ${middleware.constructor.name}`)
             await middleware.execute(this._message)
          }),
@@ -91,7 +91,7 @@ export class AbstractClient<
 
    async forwardData() {
       await Promise.all(
-         this._forwarders.map(forwarder => forwarder.forward(this._message)),
+         this._forwarders.map((forwarder) => forwarder.forward(this._message)),
       )
    }
 
@@ -103,15 +103,15 @@ export class AbstractClient<
       )
       console.log(`Starting to listen with following configuration`)
       console.log(`* Decoders:`)
-      this._decoders.forEach(decoder =>
+      this._decoders.forEach((decoder) =>
          console.log(`  - ${decoder.constructor.name} on port ${decoder.port}`),
       )
       console.log(`* Middlewares:`)
-      this._middlewares.forEach(middleware =>
+      this._middlewares.forEach((middleware) =>
          console.log(`  - ${middleware.constructor.name}`),
       )
       console.log(`* Forwarders:`)
-      this._forwarders.forEach(forwarder =>
+      this._forwarders.forEach((forwarder) =>
          console.log(`  - ${forwarder.constructor.name}`),
       )
    }

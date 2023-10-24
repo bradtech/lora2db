@@ -1,4 +1,5 @@
 import { AbstractDecoder } from './decoders/AbstractDecoder'
+import { AbstractProvider } from './providers/AbstractProvider'
 import { CayenneDecoder } from './decoders/CayenneDecoder'
 import { CompressedDecoder } from './decoders/CompressedDecoder'
 import { AbstractClient } from './client/AbstractClient'
@@ -9,6 +10,7 @@ import { ProcessingMessage } from './ProcessingMessage'
 
 export {
    AbstractDecoder,
+   AbstractProvider,
    CayenneDecoder,
    CompressedDecoder,
    AbstractClient,
