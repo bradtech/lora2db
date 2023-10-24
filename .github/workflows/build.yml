@@ -25,6 +25,6 @@ jobs:
           node-version: 16
           registry-url: "https://registry.npmjs.org"
       - name: Publish on NPM
-        run: npm publish --workspace
+        run: npm publish --workspace packages/*
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
