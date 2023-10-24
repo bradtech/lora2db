@@ -25,6 +25,10 @@ jobs:
           node-version: 16
           registry-url: "https://registry.npmjs.org"
       - name: Publish on NPM
-        run: npm publish --workspace packages/*
+        run: npm publish --workspace packages/lora2db
+          npm publish --workspace packages/lora2db-fwdr-influx
+          npm publish --workspace packages/lora2db-fwdr-timestream
+          npm publish --workspace packages/lora2db-provider-orange
+          npm publish --workspace packages/lora2db-provider-ttn
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
