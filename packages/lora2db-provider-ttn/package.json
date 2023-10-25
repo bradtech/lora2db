@@ -11,10 +11,10 @@
       "build": "tsc",
       "buildwatch": "tsc --watch"
    },
+   "peerDependencies": {
+      "@bradtech/lora2db": "workspace:*"
+   },
    "dependencies": {
-      "@bradtech/lora2db": "workspace:*",
-      "dotenv": "^16.0.3",
-      "mqtt": "^4.3.7",
       "time-stamp": "^2.2.0"
    },
    "devDependencies": {

@@ -11,11 +11,11 @@
       "build": "tsc",
       "buildwatch": "tsc --watch"
    },
+   "peerDependencies": {
+      "@bradtech/lora2db": "workspace:*"
+   },
    "dependencies": {
-      "@bradtech/lora2db": "workspace:*",
       "@influxdata/influxdb-client": "^1.15.0",
-      "dotenv": "^16.0.3",
-      "mqtt": "^4.3.7",
       "time-stamp": "^2.2.0"
    },
    "devDependencies": {

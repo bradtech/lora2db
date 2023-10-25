@@ -11,7 +11,6 @@
       "buildwatch": "tsc --watch"
    },
    "dependencies": {
-      "dotenv": "^16.0.3",
       "mqtt": "^4.3.7",
       "time-stamp": "^2.2.0"
    },
