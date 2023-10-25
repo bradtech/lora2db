@@ -2,6 +2,7 @@ import { MQTTClient, CayenneDecoder, AbstractProvider } from '@bradtech/lora2db'
 import { TTNProvider } from '@bradtech/lora2db-provider-ttn'
 import { InfluxDBForwarder } from '@bradtech/lora2db-fwdr-influx'
 import { env, exit } from 'process'
+import { measurements } from './config/measurement'
 
 try {
    if (env.NODE_ENV !== 'production') {
@@ -32,7 +33,7 @@ try {
    // message is on this port
 
    // inject your port-based decoders here
-   client.addDecoder(new CayenneDecoder({ measurements }), 2) // port 2
+   client.addDecoder(new CayenneDecoder({ measurements }), 1) // port 2
 
    // inject your forwarders here
    // forwarders receive data and send it to a destination, generally a server
