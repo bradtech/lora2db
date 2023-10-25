@@ -15,8 +15,7 @@
       "@bradtech/lora2db": "workspace:*"
    },
    "dependencies": {
-      "@influxdata/influxdb-client": "^1.15.0",
-      "time-stamp": "^2.2.0"
+      "@influxdata/influxdb-client": "^1.15.0"
    },
    "devDependencies": {
       "bun-types": "^1.0.7",
