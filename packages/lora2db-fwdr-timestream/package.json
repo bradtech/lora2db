@@ -1,18 +1,17 @@
 {
    "name": "@bradtech/lora2db-fwdr-timestream",
-   "version": "0.9.4",
+   "version": "0.9.5",
    "author": "Brad Technology SAS <developers@brad.ag>",
    "license": "MIT",
    "main": "lib/index.js",
    "scripts": {
       "test": "jest --runInBand --silent --ci --verbose",
       "start": "NODE_ENV=production node lib/index.js",
-      "jsbuild": "babel src --presets @babel/preset-env --out-dir lib --copy-files",
       "build": "tsc",
       "buildwatch": "tsc --watch"
    },
    "peerDependencies": {
-      "@bradtech/lora2db": "^0.9.4"
+      "@bradtech/lora2db": "^0.9.5"
    },
    "dependencies": {
       "@aws-sdk/client-timestream-write": "^3.433.0",

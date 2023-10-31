@@ -1,27 +1,22 @@
 {
    "name": "@bradtech/lora2db-provider-orange",
-   "version": "0.9.4",
+   "version": "0.9.5",
    "author": "Brad Technology SAS <developers@brad.ag>",
    "license": "MIT",
    "main": "lib/index.js",
    "scripts": {
       "test": "jest --runInBand --silent --ci --verbose",
       "start": "NODE_ENV=production node lib/index.js",
-      "jsbuild": "babel src --presets @babel/preset-env --out-dir lib --copy-files",
       "build": "tsc",
       "buildwatch": "tsc --watch"
    },
    "peerDependencies": {
-      "@bradtech/lora2db": "^0.9.4"
+      "@bradtech/lora2db": "^0.9.5"
    },
    "dependencies": {
       "time-stamp": "^2.2.0"
    },
    "devDependencies": {
-      "@babel/cli": "^7.12.10",
-      "@babel/core": "^7.17.10",
-      "@babel/preset-env": "^7.17.10",
-      "@babel/preset-typescript": "^7.16.7",
       "@types/jest": "^27.0.3",
       "babel-core": "^6.26.0",
       "babel-eslint": "^8.2.3",
