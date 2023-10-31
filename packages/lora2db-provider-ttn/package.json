@@ -12,7 +12,7 @@
       "buildwatch": "tsc --watch"
    },
    "peerDependencies": {
-      "@bradtech/lora2db": "workspace:*"
+      "@bradtech/lora2db": "^0.9.4"
    },
    "dependencies": {
       "time-stamp": "^2.2.0"
