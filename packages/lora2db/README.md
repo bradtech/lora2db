@@ -1,4 +1,6 @@
-# Lora2db, a Lorawan to Database Middleware
+# Lora2db
+
+## A Lorawan to Database Middleware
 
 A modular utility package to subscribe to LoraWan providers message queues, process data and push it to a database like InfluxDB or AWS Timestream.
 

@@ -61,6 +61,9 @@ export class MQTTClient extends AbstractClient<any, any, any, any> {
          username: this.username,
          password: this.password,
          keepAlive: this.keepAlive,
+         // avoid TLS error with self-signed certificate
+         // @see https://nodejs.org/api/tls.html#tls_tls_connect_options_callback
+         rejectUnauthorized: false,
       })
 
       /** client on connect **/
