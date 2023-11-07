@@ -13,7 +13,7 @@ First, you'll need to download the `@bradtech/lora2db` module with your favorite
 ```sh
 npm i @bradtech/lora2db
 # OR
-bun add @bradteh/lora2db
+bun add @bradtech/lora2db
 ```
 
 ... and then download a provider and a forwarder that suit your needs, among:
