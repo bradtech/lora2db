@@ -1,6 +1,6 @@
 {
    "name": "@bradtech/lora2db-fwdr-influx",
-   "version": "0.9.5",
+   "version": "1.0.0",
    "author": "Brad Technology SAS <developers@brad.ag>",
    "license": "MIT",
    "main": "lib/index.js",
@@ -11,14 +11,13 @@
       "buildwatch": "tsc --watch"
    },
    "peerDependencies": {
-      "@bradtech/lora2db": "^0.9.5"
+      "@bradtech/lora2db": "^1.0.0"
    },
    "dependencies": {
       "@influxdata/influxdb-client": "^1.15.0"
    },
    "devDependencies": {
       "bun-types": "^1.0.7",
-      "cross-env": "^5.1.4",
       "eslint": "^4.19.1",
       "eslint-config-prettier": "^2.9.0",
       "eslint-config-standard": "^11.0.0",
@@ -26,11 +25,6 @@
       "eslint-plugin-node": "^6.0.1",
       "eslint-plugin-promise": "^3.7.0",
       "eslint-plugin-standard": "^3.0.1",
-      "typescript": "4.7.4"
-   },
-   "packageManager": "yarn@3.2.2",
-   "os": [
-      "darwin",
-      "linux"
-   ]
+      "typescript": "^4.7.4"
+   }
 }

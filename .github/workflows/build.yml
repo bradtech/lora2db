@@ -5,29 +5,32 @@ on:
       types: [published]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v3
-      - uses: oven-sh/setup-bun@v1
-      - name: bun install, and build
-        run: |
-          bun install
-          bun run build
+   build:
+      runs-on: ubuntu-latest
+      permissions:
+         contents: read
+         packages: write
+      steps:
+         - uses: actions/checkout@v3
+         - uses: oven-sh/setup-bun@v1
+         - name: Build and version packages
+           env:
+              RELEASE_TAG: ${{ github.event.release.tag_name }}
+           run: |
+              bun install
+              bun run build
+              npm version $RELEASE_TAG --workspaces --no-git-tag-version --legacy-peer-deps
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: "https://registry.npmjs.org"
-      - name: Publish on NPM
-        run: |
-          npm publish --workspace packages/lora2db --access public
-          npm publish --workspace packages/lora2db-fwdr-influx --access public
-          npm publish --workspace packages/lora2db-fwdr-timestream --access public
-          npm publish --workspace packages/lora2db-provider-orange --access public
-          npm publish --workspace packages/lora2db-provider-ttn --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+         - uses: actions/setup-node@v3
+           with:
+              node-version: 16
+              registry-url: 'https://registry.npmjs.org'
+         - name: Publish packages on NPM
+           env:
+              NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+           run: |
+              npm publish --workspaces --access public
+              # npm publish --workspace packages/lora2db-fwdr-influx --access public
+              # npm publish --workspace packages/lora2db-fwdr-timestream --access public
+              # npm publish --workspace packages/lora2db-provider-orange --access public
+              # npm publish --workspace packages/lora2db-provider-ttn --access public

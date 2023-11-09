@@ -1,6 +1,6 @@
 {
    "name": "@bradtech/lora2db-provider-orange",
-   "version": "0.9.5",
+   "version": "1.0.0",
    "author": "Brad Technology SAS <developers@brad.ag>",
    "license": "MIT",
    "main": "lib/index.js",
@@ -13,18 +13,8 @@
    "peerDependencies": {
       "@bradtech/lora2db": "^0.9.5"
    },
-   "dependencies": {
-      "time-stamp": "^2.2.0"
-   },
    "devDependencies": {
-      "@types/jest": "^27.0.3",
-      "babel-core": "^6.26.0",
-      "babel-eslint": "^8.2.3",
-      "babel-jest": "^27.1.2",
-      "babel-polyfill": "^6.26.0",
-      "babel-preset-env": "^1.6.1",
       "bun-types": "^1.0.7",
-      "cross-env": "^5.1.4",
       "eslint": "^4.19.1",
       "eslint-config-prettier": "^2.9.0",
       "eslint-config-standard": "^11.0.0",
@@ -32,15 +22,6 @@
       "eslint-plugin-node": "^6.0.1",
       "eslint-plugin-promise": "^3.7.0",
       "eslint-plugin-standard": "^3.0.1",
-      "jest": "^27.4.7",
-      "jest-node-exports-resolver": "^1.1.4",
-      "ts-jest": "^27.1.2",
-      "ts-node": "^10.4.0",
       "typescript": "4.7.4"
-   },
-   "packageManager": "yarn@3.2.2",
-   "os": [
-      "darwin",
-      "linux"
-   ]
+   }
 }
