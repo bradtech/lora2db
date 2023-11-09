@@ -1,10 +1,8 @@
 name: Test, build and publish module CI
 
 on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+   release:
+      types: [published]
 
 jobs:
   build:

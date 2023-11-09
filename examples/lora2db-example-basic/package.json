@@ -1,0 +1,17 @@
+{
+  "name": "lora2db-example-basic",
+  "version": "1.0.0",
+  "description": "A simple setup",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@bradtech/lora2db": "^1.0.0",
+    "@bradtech/lora2db-fwdr-influx": "^1.0.0",
+    "@bradtech/lora2db-provider-ttn": "^1.0.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
