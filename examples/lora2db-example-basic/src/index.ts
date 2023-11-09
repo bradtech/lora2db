@@ -51,7 +51,6 @@ try {
    // Start to listen to queue
    client.listen()
 } catch (e) {
-   console.log(e)
    console.error(`ERROR: ${(e as Error).message}`)
    exit(1)
 }
