@@ -1,10 +1,10 @@
 # lora2db
 
-[![Test, build and publish module CI](https://github.com/bradtech/lora2db/actions/workflows/build.yml/badge.svg)](https://github.com/bradtech/lora2db/actions/workflows/build.yml)
+[![Test, build and publish module CI](https://github.com/bradtech/lora2db/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/bradtech/lora2db/actions/workflows/build.yml)
 
 ## Description
 
-A Typescript package to manage Lorawan message queues and push data to time series databases
+A Typescript package to manage Lorawan message queues, manipulate and push data to time series databases
 
 ## Get started
 
@@ -31,6 +31,12 @@ bun add @bradtech/lora2db
 These packages will manage I/O in your stead, so that you can focus on your business logic and deploy quickly.
 
 A provider will listen for data coming in, and a forwarder will send your processed data to the DBMS or service of your choice.
+
+You must declare at least one decoder to process the payload coming from your provider.
+
+We provide the `CayenneDecoder` class but you can write your own by extending the `AbstractDecoder` class.
+
+You may declare as many decoders as you want, each being bound to an unique Lorawan port.
 
 ## How to use
 
