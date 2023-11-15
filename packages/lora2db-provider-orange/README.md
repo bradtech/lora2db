@@ -1,3 +1,3 @@
-# Lora to DB Middleware
+# Lora2db Orange provider adapter
 
-A modular utility package to adapt lorawan data from orange.
+This module is part of the lora2db stack and takes care of collecting data from the Orange LiveObjects service.
