@@ -19,20 +19,28 @@ export class TimestreamForwarder extends AbstractForwarder {
    }
 
    forward(_message: ProcessingMessage) {
+      console.log('Start forwarding to timestream')
+      console.log('Received message : ')
+      console.log(_message)
       const Dimensions: Array<any> = []
       Object.keys(_message.meta).forEach((tag: string) => {
          Dimensions.push({ Name: tag, Value: _message.meta[tag] })
       })
+      console.log('dimensions :  ')
+      console.log(Dimensions)
 
       const databaseRecords = []
 
       // walk through all measurements
+      console.log('start processing measurement')
       for (const measurement of Object.keys(_message.data)) {
+         console.log('measurement : ', measurement)
          if (Object.keys(_message.data[measurement]).length > 0) {
             let tableRecords: { table: string; records: Array<any> } = {
                table: measurement,
                records: [],
             }
+            console.log('tableRecords : ', tableRecords)
             Object.keys(_message.data[measurement]).forEach((element: any) => {
                tableRecords.records.push({
                   Dimensions,
@@ -53,6 +61,9 @@ export class TimestreamForwarder extends AbstractForwarder {
          }
       }
 
+      console.log('databaseRecords : ', databaseRecords[0])
+      console.log('databaseRecords  lengh : ', databaseRecords.length)
+
       // filter and save net data as well
       const networkRecords: Array<any> = []
       Object.keys(_message.net).forEach((key: string) => {
@@ -64,10 +75,14 @@ export class TimestreamForwarder extends AbstractForwarder {
             Time: Date.now(),
          })
       })
+      console.log('networkRecords : ', networkRecords[0])
+      console.log('networkRecords length : ', networkRecords.length)
       databaseRecords.push({
          table: _message.meta.network,
          records: networkRecords,
       })
+
+      console.log('databaseRecords length : ', databaseRecords.length)
 
       //save all the records
       databaseRecords.forEach((tableRecords: any) => {

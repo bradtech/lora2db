@@ -1,6 +1,6 @@
 {
    "name": "@bradtech/lora2db-fwdr-timestream",
-   "version": "0.9.9",
+   "version": "0.9.10",
    "author": "Brad Technology SAS <developers@brad.ag>",
    "license": "MIT",
    "main": "lib/index.js",
