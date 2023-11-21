@@ -1,6 +1,6 @@
 {
    "name": "@bradtech/lora2db-provider-ttn",
-   "version": "0.9.10",
+   "version": "0.9.11",
    "author": "Brad Technology SAS <developers@brad.ag>",
    "license": "MIT",
    "main": "lib/index.js",
