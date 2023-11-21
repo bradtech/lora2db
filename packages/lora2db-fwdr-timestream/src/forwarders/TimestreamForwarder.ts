@@ -19,16 +19,10 @@ export class TimestreamForwarder extends AbstractForwarder {
    }
 
    forward(_message: ProcessingMessage) {
-      console.log('Start forwarding to timestream')
-      console.log('Received message : ')
-      console.log(_message)
       const Dimensions: Array<any> = []
       Object.keys(_message.meta).forEach((tag: string) => {
          Dimensions.push({ Name: tag, Value: _message.meta[tag] })
       })
-      console.log('dimensions :  ')
-      console.log(Dimensions)
-
       const databaseRecords = []
 
       // walk through all measurements
@@ -45,9 +39,11 @@ export class TimestreamForwarder extends AbstractForwarder {
                tableRecords.records.push({
                   Dimensions,
                   MeasureName: element,
-                  MeasureValue: _message.data[measurement][element],
+                  MeasureValue: Number(
+                     _message.data[measurement][element],
+                  ).toString(),
                   MeasureValueType: 'DOUBLE',
-                  Time: Date.now(),
+                  Time: Number(Date.now()).toString(),
                })
             })
 
@@ -61,9 +57,6 @@ export class TimestreamForwarder extends AbstractForwarder {
          }
       }
 
-      console.log('databaseRecords : ', databaseRecords[0])
-      console.log('databaseRecords  lengh : ', databaseRecords.length)
-
       // filter and save net data as well
       const networkRecords: Array<any> = []
       Object.keys(_message.net).forEach((key: string) => {
@@ -75,14 +68,10 @@ export class TimestreamForwarder extends AbstractForwarder {
             Time: Number(Date.now()).toString(),
          })
       })
-      console.log('networkRecords : ', networkRecords[0])
-      console.log('networkRecords length : ', networkRecords.length)
       databaseRecords.push({
          table: _message.meta.network,
          records: networkRecords,
       })
-
-      console.log('databaseRecords length : ', databaseRecords.length)
 
       //save all the records
       databaseRecords.forEach((tableRecords: any) => {
@@ -93,8 +82,10 @@ export class TimestreamForwarder extends AbstractForwarder {
          })
 
          this._server.send(params).then(
-            (data: any) => {
-               console.log(data)
+            () => {
+               console.log(
+                  `Data successfully sent to timestream host '${this._config.TIMESTREAM_REGION}' and database '${this._config.TIMESTREAM_DB_NAME}'`,
+               )
             },
             (err: any) => {
                console.error(err)
