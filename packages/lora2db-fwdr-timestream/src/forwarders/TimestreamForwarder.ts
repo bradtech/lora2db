@@ -72,7 +72,7 @@ export class TimestreamForwarder extends AbstractForwarder {
             MeasureName: key,
             MeasureValue: Number(_message.net[key]).toString(),
             MeasureValueType: 'DOUBLE',
-            Time: Date.now(),
+            Time: Number(Date.now()).toString(),
          })
       })
       console.log('networkRecords : ', networkRecords[0])
