@@ -1,6 +1,6 @@
 {
    "name": "@bradtech/lora2db-provider-orange",
-   "version": "0.9.12",
+   "version": "0.9.13",
    "author": "Brad Technology SAS <developers@brad.ag>",
    "license": "MIT",
    "main": "lib/index.js",

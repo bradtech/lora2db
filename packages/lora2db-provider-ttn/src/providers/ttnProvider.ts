@@ -11,6 +11,9 @@ export class TTNProvider extends AbstractProvider {
 
    getPort = () => this._jsonMessage.uplink_message.f_port
 
+   getTimestamp = (): number =>
+      new Date(this._jsonMessage.uplink_message.received_at).valueOf()
+
    private isPointInTriangle(
       point: Array<number>,
       triangle: Array<Array<number>>,

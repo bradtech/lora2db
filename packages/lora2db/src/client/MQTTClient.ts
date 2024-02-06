@@ -13,9 +13,9 @@ export class MQTTClient extends AbstractClient<any, any, any, any> {
 
          const device = this._adapter?.getDeviceId()
 
-         console.log(
-            `\n${this.timestamp()} - Received message from sensor ${device}`,
-         )
+         const timestamp = this._adapter.getTimestamp()
+
+         console.log(`\n${timestamp} - Received message from sensor ${device}`)
 
          if (!this._adapter?.isMessage()) {
             console.log(`Ignoring transmission without payload`)
@@ -35,6 +35,7 @@ export class MQTTClient extends AbstractClient<any, any, any, any> {
                network: 'lora',
             },
             this._adapter.getNetData(),
+            timestamp,
             warnings,
          )
 

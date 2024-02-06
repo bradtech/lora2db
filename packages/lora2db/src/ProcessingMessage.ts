@@ -3,6 +3,7 @@ export class ProcessingMessage {
    private _data: any = undefined
    private _meta: any = undefined
    private _net: any = undefined
+   private _timestamp: any = undefined
    private _warnings: string[] = []
 
    constructor(
@@ -10,12 +11,14 @@ export class ProcessingMessage {
       data: any = {},
       meta: any = {},
       net: any = undefined,
-      warnings: string[] = []
+      timestamp: number = Date.now(),
+      warnings: string[] = [],
    ) {
       this._payload = payload
       this._data = data
       this._meta = meta
       this._net = net
+      this._timestamp = timestamp
       this._warnings = warnings
    }
 
@@ -41,6 +44,14 @@ export class ProcessingMessage {
 
    get net() {
       return this._net
+   }
+
+   set timestamp(timestamp: number) {
+      this._timestamp = timestamp
+   }
+
+   get timestamp() {
+      return this._timestamp
    }
 
    set payload(payload: any) {

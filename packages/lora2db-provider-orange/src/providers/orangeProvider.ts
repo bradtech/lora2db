@@ -11,6 +11,8 @@ export class OrangeProvider extends AbstractProvider {
 
    getPort = () => this._jsonMessage.metadata.network.lora.port
 
+   getTimestamp = (): number => new Date(this._jsonMessage.timestamp).valueOf()
+
    getNetData = () => {
       if (
          this._jsonMessage.metadata.network &&
