@@ -43,7 +43,7 @@ export class TimestreamForwarder extends AbstractForwarder {
                      _message.data[measurement][element],
                   ).toString(),
                   MeasureValueType: 'DOUBLE',
-                  Time: Number(Date.now()).toString(),
+                  Time: _message.timestamp.toString(),
                })
             })
 
@@ -65,7 +65,7 @@ export class TimestreamForwarder extends AbstractForwarder {
             MeasureName: key,
             MeasureValue: Number(_message.net[key]).toString(),
             MeasureValueType: 'DOUBLE',
-            Time: Number(Date.now()).toString(),
+            Time: _message.timestamp.toString(),
          })
       })
       databaseRecords.push({

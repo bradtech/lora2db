@@ -1,5 +1,5 @@
 import { AbstractForwarder, ProcessingMessage } from '@bradtech/lora2db'
-const { InfluxDB, Point } = require('@influxdata/influxdb-client')
+import { InfluxDB, Point } from '@influxdata/influxdb-client'
 
 export class InfluxDBForwarder extends AbstractForwarder {
    _server: any
@@ -30,6 +30,7 @@ export class InfluxDBForwarder extends AbstractForwarder {
          if (Object.keys(_message.data[measurement]).length > 0) {
             const point = new Point(measurement)
             point.fields = _message.data[measurement]
+            point.timestamp(_message.timestamp)
             points.push(point)
          } else {
             console.warn(
@@ -46,6 +47,7 @@ export class InfluxDBForwarder extends AbstractForwarder {
          const data = _message.net[key]
          if (!isNaN(data)) {
             point.fields[key] = data
+            point.timestamp(_message.timestamp)
          }
       })
       points.push(point)
