@@ -1,6 +1,6 @@
 {
    "name": "@bradtech/lora2db-fwdr-influx",
-   "version": "0.9.14",
+   "version": "0.9.15",
    "author": "Brad Technology SAS <developers@brad.ag>",
    "license": "MIT",
    "main": "lib/index.js",

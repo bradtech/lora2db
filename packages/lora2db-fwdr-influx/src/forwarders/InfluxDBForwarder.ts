@@ -16,6 +16,7 @@ export class InfluxDBForwarder extends AbstractForwarder {
       this._writer = this._server.getWriteApi(
          this._config.INFLUX_ORG,
          this._config.INFLUX_BUCKET,
+         'ms',
       )
 
       const defaultTags = _message.meta
